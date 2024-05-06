@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Press Start 2P";
+    src: url(PressStart2P-Regular.ttf);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Press Start 2p";
+    user-select: none;
+}
+
+.gameinfo {
+    width: 196px;
+    position: relative;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border: 5px solid gray;
+    padding-top: 10px;
+    font-size: 24px;
+}
+
+#all {
+    width: 546px;
+    height: 650px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#board {
+    border: 5px solid gray;
+    background-color: black;
+}
+
+#nextboard {
+    margin-top: 20px;
+}
+
+#next {
+    left: 340px;
+    top: -648px;
+    height: 206px;
+}
+
+#level {
+    left: 340px;
+    top: -637px;
+    height: 64px;
+}
+
+#levelout {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#lines {
+    left: 340px;
+    top: -626px;
+    height: 64px;
+}
+
+#linesout {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#score {
+    left: 340px;
+    top: -615px;
+    height: 64px;
+}
+
+#scoreout {
+    margin-top: 10px;
+    text-align: center;
+}
