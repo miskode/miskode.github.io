@@ -1,1 +1,22 @@
-go to ./snake
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tetris</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="all">
+            <canvas id="board" width="320" height="640">
+                Your browser doesn't support canvas. Find something worthwhile to do instead. :P
+            </canvas>
+            <div id="next" class="gameinfo">NEXT<br>
+                <canvas id="nextboard" width="128" height="128"></canvas>
+            </div>
+            <div id="level" class="gameinfo">LEVEL<p id="levelout">000</p></div>
+            <div id="lines" class="gameinfo">LINES<p id="linesout">000</p></div>
+            <div id="score" class="gameinfo">SCORE<p id="scoreout">0000000</p></div>
+            <p id="console"></p>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
