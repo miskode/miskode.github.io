@@ -216,7 +216,7 @@ function render() {
     draw_piece(pieceX, pieceY, pieceType, pieceRot);
 }
 
-//start();
+start();
 
 async function start() {
     let prevTime = 0;
