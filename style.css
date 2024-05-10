@@ -1,5 +1,11 @@
+@font-face {
+    font-family: "SrcCode";
+    src: url("/fonts/SourceCodePro.ttf");
+}
+
 body {
     background-color: black;
     color: white;
     text-align: center;
+    font-family: ("SrcCode");
 }
