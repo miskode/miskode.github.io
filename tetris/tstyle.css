@@ -1,6 +1,6 @@
 @font-face {
   font-family: TetrisFont;
-  src: url(fonts/PressStart.ttf);
+  src: url(/fonts/PressStart.ttf);
 }
 
 html {
