@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Minesweeper</title>
+    <link rel="icon" href="/minesweeper/flag.png" />
+    <link rel="stylesheet" href="/minesweeper/style.css" />
+  </head>
+  <body>
+    <div id="title">
+      <h1>Minesweeper</h1>
+      <p>Dimensions:</p>
+      <input type="text" id="width" size="1" value="16" />
+      <label for="height"> by </label>
+      <input type="text" id="height" size="1" value="16" />
+      <br /><br />
+      <button onclick="start()">Start</button>
+    </div>
+    <div id="game" onmousedown="return false" onselectstart="return false">
+      <div id="info">
+        <img src="/minesweeper/time.png" class="infoicon" id="timericon">
+        <div id="timers">000</div>
+        <img src="/minesweeper/flag.png" class="infoicon" id="flagicon">
+        <div id="flags">000</div>
+      </div>
+      <div id="grid"></div>
+    </div>
+    <div id="gameover">Game Over!</div>
+    <script src="/minesweeper/script.js"></script>
+  </body>
+</html>
