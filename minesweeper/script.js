@@ -252,7 +252,7 @@ function update(ex, ey) {
         if (flagged[i]) {
           g.innerHTML = "";
           let h = document.createElement("img");
-          h.src = "flag.png";
+          h.src = "/minesweeper/flag.png";
           h.classList.add("flag")
           g.append(h);
         } else {
