@@ -287,6 +287,7 @@ function retry() {
     score = 0;
     level = 0;
     lines = 0;
+    speed = 48;
     downFrame = 0;
     alive = true;
     next_piece(bag[1]);
