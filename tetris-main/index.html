@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tetris</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="img/icon.png">
+    </head>
+    <body>
+        <audio loop="true" src="main.ogg" id="music"></audio>
+        <audio src="sfx/move-piece.mp3" class="sfx"></audio>
+        <audio src="sfx/rotate-piece.wav" class="sfx"></audio>
+        <audio src="sfx/piece-land.mp3" class="sfx"></audio>
+        <audio src="sfx/layer-land.mp3" class="sfx"></audio>
+        <audio src="sfx/line-clear.mp3" class="sfx"></audio>
+        <audio src="sfx/4-lines.mp3" class="sfx"></audio>
+        <audio src="sfx/level-up.mp3" class="sfx"></audio>
+        <div id="title-page">
+            <h1>TETRIS</h1>
+            <span>
+                <button onclick="manage('title-page', 'close');manage('all', 'open');started?bgMusic.play():null;console.log('start game play');alive = true;retry();started=true;game_loop();">START</button>
+                <button onclick="manage('settings', 'open')">SETTINGS</button>
+                <a href="https://miskode.is-a.dev/"><button>MISKODE</button></a>
+            </span>
+        </div>
+        <div id="all">
+            <canvas id="board" width="320" height="640">
+                Your browser doesn't support canvas. Find something worthwhile to do instead.
+            </canvas>
+            <div id="next" class="gameinfo">NEXT<br>
+                <canvas id="nextboard" width="128" height="128"></canvas>
+            </div>
+            <div id="level" class="gameinfo">LEVEL<p id="levelout">0</p></div>
+            <div id="lines" class="gameinfo">LINES<p id="linesout">0</p></div>
+            <div id="score" class="gameinfo">SCORE<p id="scoreout">0</p></div>
+            <button id="retry-button" onclick="manage('retry-con', 'open');settings = true;bgMusic.pause();"><img src="img/retry.png"></button>
+            <button id="settings-button" onclick="
+            manage('settings', 'open');
+            "><img src="img/settings.png"></button>
+            <button id="home" onclick="manage('home-con', 'open');settings = true;bgMusic.pause();"><img src="img/home.png"></button>
+        </div>
+        <div id="pause">
+            <div id="ptext">
+                PAUSED
+            </div>
+        </div>
+        <div id="settings">
+            <div id="stext">
+                <h1 id="shead" class="center">SETTINGS</h1>
+                <br>
+                <h2 class="center">CONTROLS</h2>
+                <br>
+                <span>HARD DROP</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 0">A</button>
+                <br>
+                <br>
+                <span>SOFT DROP</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 1">D</button>
+                <br>
+                <br>
+                <span>MOVE LEFT</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 2">S</button>
+                <br>
+                <br>
+                <span>MOVE RIGHT</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 3">W</button>
+                <br>
+                <br>
+                <span>ROTATE LEFT</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 4">J</button>
+                <br>
+                <br>
+                <span>ROTATE RIGHT</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 5">K</button>
+                <br>
+                <br>
+                <span>PAUSE</span>
+                <button class="f-right t-bor keybinds" onclick="keyFocus = 6">SPACE</button>
+                <br>
+                <br>
+                <button id="d-keys" class="t-bor" onclick="defaults('controls')">DEFAULT CONTROLS</button>
+                <br>
+                <br>
+                <br>
+                <h2 class="center">COLORS</h2>
+                <br>
+                <br>
+                <span>I PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>J PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>L PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>O PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>S PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>T PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <span>Z PIECE</span>
+                <input type="color" class="colinp">
+                <br>
+                <br>
+                <button id="d-col" class="t-bor" onclick="defaults('colors')">DEFAULT COLORS</button>
+                <br>
+                <br>
+                <br>
+                <h2 class="center">SOUND</h2>
+                <br>
+                <br>
+                <span>MASTER</span>
+                <input type="range" class="f-right sound-range">
+                <br>
+                <br>
+                <span>MUSIC</span>
+                <input type="range" class="f-right sound-range">
+                <br>
+                <br>
+                <span>SFX</span>
+                <input type="range" class="f-right sound-range">
+                <br>
+                <br>
+                <button id="d-sound" class="t-bor" onclick="defaults('sound')">DEFAULT SOUND</button>
+                <br>
+                <br>
+                <br>
+                <br>
+                <button id="s-close" class="t-bor" onclick="
+                manage('settings', 'close');started?bgMusic.play():started = false;">CLOSE</button>
+            </div>
+        </div>
+        <div id="retry-con">
+            <div id="retry-box">
+                RETRY?
+                <br>
+                <br>
+                YOUR GAME WILL
+                <br>
+                NOT BE SAVED!
+                <br>
+                <br>
+                <button onclick="manage('retry-con', 'close');settings = false;bgMusic.play();retry();">RETRY</button>
+                <button onclick="manage('retry-con', 'close');settings = false;bgMusic.play();">CLOSE</button>
+            </div>
+        </div>
+        <div id="game-over-con">
+            <div id="game-over-box">
+                GAME OVER
+                <br>
+                <br>
+                SCORE:
+                <p id="end-score">0</p>
+                <p id="highscore"></p>
+                <button><img src="img/retry.png" onclick="manage('game-over-con', 'close');retry();settings=false;game_loop();"></button>
+                <button><img src="img/settings.png" onclick="manage('settings', 'open')"></button>
+                <button onclick="retry();manage('all', 'close');manage('game-over-con','close');manage('title-page', 'open');bgMusic.pause();started=false;alive=false;settings = false;"><img src="img/home.png"></button>
+            </div>
+        </div>
+        <div id="home-con">
+            <div id="home-box">
+                YOUR GAME WILL<br>NOT BE SAVED!<br><br>
+                RETURN HOME?
+                <br><br>
+                <button onclick="manage('all', 'close');manage('home-con', 'close');manage('title-page', 'open');started = false;alive = false;settings = false;bgMusic.pause();settings = false;">HOME</button>
+                <button onclick="manage('home-con', 'close');settings = false;bgMusic.play();console.log('close home play')">CANCEL</button>
+            </div>
+        </div>
+        <script src="script.js" id="music"></script>
+    </body>
+</html>
