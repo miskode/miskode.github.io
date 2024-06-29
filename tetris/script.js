@@ -352,19 +352,23 @@ function check_lines() {
 
 function clear_lines() {
     let cleared = 0;
+    sfx_play(3)
     for (let i = 0; i < queuedLines.length; i++) {
         grid.splice(queuedLines[i], 1);
         grid.splice(0, 0, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         cleared++;
         lines++;
+        const prevLevel = level
         level = Math.floor(lines / 10);
+        if (level > prevLevel) {
+            setTimeout(() => {sfx_play(6)}, "250");
+        }
         if (level < 29) {
             speed = speeds[level];
         } else {
             speed = 1;
         }
     }
-    sfx_play(3)
     score += [0, 40, 100, 300, 1200][cleared] * (level + 1);
 }
 
