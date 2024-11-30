@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" type="image/png" href="pipe.png">
+        <link rel="stylesheet" href="style.css">
+        <title>Metal Pipe</title>
+    </head>
+    <body>
+        <div>
+            <h1>Silence broken by metal pipe</h1>
+            <p>Are you tired of enjoying the silence? Are you craving constant fear while you browse the web?
+                If so, this website is for you! Just press go, and every so often, a falling pipe sound effect
+                will play and jolt you back to attention. You can adjust the time periods between sounds as well
+                as the volume, though anything less than maximum volume would be downright cowardly! Happy listening!
+            </p>
+            <br>
+            <p>Sound will play every <input type="number" id="min" min="1" max="60" value="5"> to 
+                <input type="number" id="max" min="1" max="60" value="15"> minutes.</p>
+            <p>Volume: <select id="vol">
+                <option value="0">Off</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+                <option value="4">Max</option>
+            </select></p>
+            <br>
+            <button onclick="drop()">Begin the fun!</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
