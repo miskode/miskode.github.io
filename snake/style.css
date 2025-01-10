@@ -61,7 +61,7 @@ button {
 
 #pause {
     display: none;
-    background-color: #222222;
+    background-color: black;
     color: white;
     position: absolute;
     left: 50%;
