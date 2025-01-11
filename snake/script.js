@@ -291,6 +291,9 @@ function manage(focus, op) {
         document.getElementById("sncol").value = snakeColor;
         document.getElementById("bgcol").value = bgColor;
         document.getElementById("speed").value = speed;
+        if (op = "close") {
+            apply();
+        }
     }
 }
 
