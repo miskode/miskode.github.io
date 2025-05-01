@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/snake/style.css">
+        <link rel="stylesheet" href="./style.css">
         <title>Snake</title>
     </head>
     <body onload="setup()">
@@ -14,7 +14,7 @@
             <p>SCORE: <span id="score"></span></p>
             <button id="retry" onclick="retry()">RETRY</button>
             <button id="settings_go" onclick="manage('settings', 'open')">SETTINGS</button>
-            <a href="/index.html"><button id="home">HOME</button></a>
+            <a href="../index.html"><button id="home">HOME</button></a>
         </div>
         <div id="settings">
             <h1>SETTINGS</h1>
@@ -28,5 +28,5 @@
             <button id="close_set" onclick="apply(); manage('settings', 'close')">CLOSE</button>
         </div>
     </body>
-    <script src="/snake/script.js"></script>
+    <script src="./script.js"></script>
 </html>
