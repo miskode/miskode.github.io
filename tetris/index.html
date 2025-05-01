@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <title>Tetris</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/png" href="img/icon.png">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" type="image/png" href="./img/icon.png">
     </head>
     <body>
         <audio loop="true" src="main.ogg" id="0"></audio>
@@ -35,12 +35,12 @@
                 </p>
                 <button onclick="manage('title-page', 'close');manage('all', 'open');started?bgMusic.play():null;console.log('start game play');alive = true;retry();started=true;game_loop();">START</button>
                 <button onclick="manage('settings', 'open')">SETTINGS</button>
-                <a href="https://miskode.is-a.dev/"><button>MISKODE</button></a>
+                <a href="../index.html"><button>MISKODE</button></a>
             </span>
         </div>
         <div id="all">
             <canvas id="board" width="320" height="640">
-                Your browser doesn't support canvas. Find something worthwhile to do instead.
+                Your browser doesn't support Canvas API. Find something productive to do instead of playing games.
             </canvas>
             <div id="next" class="gameinfo">NEXT<br>
                 <canvas id="nextboard" width="128" height="128"></canvas>
@@ -192,6 +192,6 @@
                 <button onclick="manage('home-con', 'close');settings = false;bgMusic.play();console.log('close home play')">CANCEL</button>
             </div>
         </div>
-        <script src="script.js" id="music"></script>
+        <script src="./script.js" id="music"></script>
     </body>
 </html>
