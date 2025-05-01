@@ -1,5 +1,5 @@
 @font-face {
-    src: url("/fonts/PressStart.ttf");
+    src: url("PressStart2P.ttf");
     font-family: "PS2P";
 }
 
@@ -51,13 +51,13 @@ h1 {
 button {
     background-color: black;
     color: white;
-    border: 3px solid gray;
+    border: 5px solid gray;
     font-size: 20px;
     font-family: "PS2P";
 }
 
 button:hover {
-    border: 3px solid white;
+    border: 5px solid white;
 }
 
 #board {
@@ -75,7 +75,7 @@ button:hover {
     display: none;
     background-color: black;
     color: white;
-    border: 3px solid white;
+    border: 5px solid white;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -110,7 +110,7 @@ button:hover {
     display: none;
     background-color: black;
     color: white;
-    border: 3px solid white;
+    border: 5px solid white;
     text-align: center;
     font-size: 30px;
     padding: 20px;
@@ -127,7 +127,7 @@ button:hover {
     display: none;
     background-color: black;
     color: white;
-    border: 3px solid white;
+    border: 5px solid white;
     text-align: left;
     font-size: 20px;
     padding: 50px;
@@ -136,11 +136,15 @@ button:hover {
 }
 
 #close_set {
+    position: absolute;
+    left: calc(50% - 145px);
     width: 130px;
     height: 40px;
 }
 
 #reset {
+    position: absolute;
+    left: calc(50% + 15px);
     width: 130px;
     height: 40px;
 }
@@ -151,7 +155,7 @@ input {
 
 input[type="color" i] {
     padding: 0px;
-    border: 3px solid gray;
+    border: 5px solid gray;
 }
 
 input[type="color" i]::-webkit-color-swatch-wrapper {
