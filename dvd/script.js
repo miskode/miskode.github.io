@@ -29,10 +29,13 @@ addEventListener("keydown", (e) => {
             speed = 3;
             break;
         case "Shift":
-            console.log("shift");
+            //console.log("shift");
             colorMode == "color" ? colorMode = "white" : colorMode = "color";
+            break;
         case "h":
+            //console.log("h");
             window.location = "../index.html";
+            break;
     }
 })
 
