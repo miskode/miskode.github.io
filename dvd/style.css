@@ -1,0 +1,15 @@
+* {
+    background-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    overflow: hidden;
+    cursor: none;
+}
+
+#test {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
