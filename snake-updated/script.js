@@ -88,7 +88,6 @@ Array.prototype.arrIncludes = function(search)
 function setup() {
     board = document.getElementById("board").getContext("2d");
     addEventListener("keydown", (e) => {
-        e.preventDefault();
         if (!started) {
             game();
         }
