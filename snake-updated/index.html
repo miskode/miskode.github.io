@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <title>Unifonts</title>
+        <title>Snake</title>
     </head>
-    <body>
-        <h1>Unifonts</h1>
-        <textarea rows="4" cols="32" id="input" placeholder="Enter text here"></textarea>
-        <br>
-        <select id="font">
-            <option value="0">&#x1d53b&#x1d560&#x1d566&#x1d553&#x1d55d&#x1d556 &#x1d54a&#x1d556&#x1d563&#x1d55a&#x1d557</option>
-            <option value="1">&#xff2d&#xff4f&#xff4e&#xff4f&#xff53&#xff50&#xff41&#xff43&#xff45</option>
-            <option value="2">&#x1d401&#x1d428&#x1d425&#x1d41d &#x1d412&#x1d41e&#x1d42b&#x1d422&#x1d41f</option>
-            <option value="3">&#x1d43c&#x1d461&#x1d44e&#x1d459&#x1d456&#x1d450 &#x1d446&#x1d452&#x1d45f&#x1d456&#x1d453</option>
-            <option value="4">&#x1d469&#x1d490&#x1d48d&#x1d485 &#x1d470&#x1d495&#x1d482&#x1d48d&#x1d48a&#x1d484 &#x1d47a&#x1d486&#x1d493&#x1d48a&#x1d487</option>
-            <option value="5">&#x1d49e&#x1d4ca&#x1d4c7&#x1d4c8&#x1d4be&#x1d4cb&#x212f</option>
-            <option value="6">&#x1d4d1&#x1d4f8&#x1d4f5&#x1d4ed &#x1d4d2&#x1d4fe&#x1d4fb&#x1d4fc&#x1d4f2&#x1d4ff&#x1d4ee</option>
-            <option value="7">&#x1d510&#x1d522&#x1d521&#x1d526&#x1d522&#x1d533&#x1d51e&#x1d529</option>
-            <option value="8">&#x1d56d&#x1d594&#x1d591&#x1d589 &#x1d582&#x1d58a&#x1d589&#x1d58e&#x1d58a&#x1d59b&#x1d586&#x1d591</option>
-            <option value="9">&#x1d5b2&#x1d5ba&#x1d5c7&#x1d5cc &#x1d5b2&#x1d5be&#x1d5cb&#x1d5c2&#x1d5bf</option>
-            <option value="10">&#x1d5d5&#x1d5fc&#x1d5f9&#x1d5f1 &#x1d5e6&#x1d5ee&#x1d5fb&#x1d600 &#x1d5e6&#x1d5f2&#x1d5ff&#x1d5f6&#x1d5f3</option>
-            <option value="11">&#x1d610&#x1d635&#x1d622&#x1d62d&#x1d62a&#x1d624 &#x1d61a&#x1d622&#x1d62f&#x1d634 &#x1d61a&#x1d626&#x1d633&#x1d62a&#x1d627</option>
-            <option value="12">&#x1d63d&#x1d664&#x1d661&#x1d659 &#x1d644&#x1d669&#x1d656&#x1d661&#x1d65e&#x1d658 &#x1d64e&#x1d656&#x1d663&#x1d668 &#x1d64e&#x1d65a&#x1d667&#x1d65e&#x1d65b</option>
-            <option value="13">&#x1d683&#x1d6a2&#x1d699&#x1d68e&#x1d6a0&#x1d69b&#x1d692&#x1d69d&#x1d68e&#x1d69b</option>
-            <option value="14">&#x1f11f&#x1f110&#x1f121&#x1f114&#x1f11d&#x1f123&#x1f117&#x1f114&#x1f122&#x1f114&#x1f122</option>
-            <option value="15">&#x24b8&#x24d8&#x24e1&#x24d2&#x24db&#x24d4</option>
-            <option value="16">&#x1f131&#x1f13e&#x1f147</option>
-            <option value="17">&#x1f158&#x1f15d&#x1f165. &#x1f152&#x1f158&#x1f161&#x1f152&#x1f15b&#x1f154</option>
-            <option value="18">&#x1f178&#x1f17d&#x1f185. &#x1f171&#x1f17e&#x1f187</option>
-            <option value="19">Outline</option>
-            <option value="20">Double Outline</option>
-        </select>
-        <button onclick="convert()">Convert</button>
-        <p id="output">qwertyuiop<br>qwertyuiop</p>
-        <script src="script.js"></script>
+    <body onload="setup()">
+        <p id="output"></p>
+        <canvas id="board" width="1280" height="640"></canvas>
+        <div id="pause">PAUSED</div>
+        <div id="game_over">
+            GAME OVER
+            <br>
+            <p>SCORE: <span id="score"></span></p>
+            <button id="retry" onclick="retry()">RETRY</button>
+            <button id="settings_go" onclick="manage('settings', 'open')">SETTINGS</button>
+            <a href="/index.html"><button id="home">HOME</button></a>
+        </div>
+        <div id="settings">
+            <h1>SETTINGS</h1>
+            <p>Snake Color:<input type="color" id="sncol"></p>
+            <p>Apple Color:<input type="color" id="apcol"></p>
+            <p>Background Color:<input type="color" id="bgcol"></p>
+            <br>
+            <p>Speed: <input id="speed" type="range" min="1" max="30" class="slider"></p>
+            <br>
+            <button id="reset" onclick="reset()">RESET</button>
+            <button id="close_set" onclick="apply(); manage('settings', 'close')">CLOSE</button>
+        </div>
     </body>
+    <script src="script.js"></script>
 </html>
