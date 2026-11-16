@@ -67,7 +67,6 @@ select {
   outline: none;
   border: 5px solid gray;
 }
-
 select:hover {
   border-color: white;
 }
@@ -83,7 +82,8 @@ button:hover {
 
 canvas {
   border: 5px solid white;
-  image-rendering: pixelated;
+  width: 50%;
+  height: 50%;
 }
 
 aside {
