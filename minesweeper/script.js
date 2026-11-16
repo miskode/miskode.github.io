@@ -2,7 +2,7 @@ const canvas = document.querySelector("#board");
 const board = canvas.getContext("2d");
 const flag_img = document.querySelector("#flag_img");
 const mine_img = document.querySelector("#mine_img");
-const scale = 35;
+const scale = 70;
 const colors = {
     border: "#303030",
     dark_hidden: "#404040",
@@ -48,8 +48,8 @@ document.querySelector("#difficulty").addEventListener("change", (e) => {
 
 addEventListener("mousemove", (e) => {
     let r = canvas.getBoundingClientRect();
-    mouse_tile.x = Math.floor((e.clientX - r.left - 5) / scale);
-    mouse_tile.y = Math.floor((e.clientY - r.top - scale - 5) / scale);
+    mouse_tile.x = Math.floor((e.clientX - r.left - 5) / scale * 2);
+    mouse_tile.y = Math.floor((e.clientY - r.top - scale - 5) / scale * 2) + 1;
     render();
 });
 
@@ -439,9 +439,9 @@ function draw_hidden_squares() {
                     continue;
                 }
                 board.fillStyle = colors.text[grid[y * grid_size.x + x] - 1];
-                board.fillText(Number(grid[y * grid_size.x + x]),
+                board.fillText(grid[y * grid_size.x + x],
                     x * scale + Math.round(scale / 4),
-                    (y + 1) * scale + Math.round(scale / 7));
+                    (y + 1) * scale + Math.round(scale / 4));
             } else if (grid[y * grid_size.x + x] === "X" && !alive && mines_shown[y * grid_size.x + x]) {
                 board.drawImage(mine_img, x * scale, 
                 (y + 1) * scale, scale, scale);
@@ -451,7 +451,7 @@ function draw_hidden_squares() {
 }
 
 function render() {
-    const w = 3;
+    const w = 6;
     board.clearRect(0, 0, grid_size.x * scale, grid_size.y * scale + scale);
     board.font = `600 ${Math.round(scale * 0.85)}px Roboto`;
     board.textBaseline = "hanging";
@@ -477,8 +477,8 @@ function render() {
     board.drawImage(flag_img, Math.round(scale * 0.125), Math.round(scale * 0.125), 
     Math.round(scale * 0.75), Math.round(scale * 0.75));
     board.fillStyle = "#ffffff";
-    board.fillText(Utils.three_digit_format(num_of_flags), scale, Math.round(scale / 8));
-    board.fillText(Utils.three_digit_format(time), scale * grid_size.x - scale * 1.6, Math.round(scale / 8));
+    board.fillText(Utils.three_digit_format(num_of_flags), scale, Math.round(scale / 4));
+    board.fillText(Utils.three_digit_format(time), scale * grid_size.x - scale * 1.6, Math.round(scale / 4));
 }
 
 function start() {
