@@ -88,6 +88,7 @@ addEventListener("keydown", (e) => {
                         set_grid(grid_size.x, grid_size.y);
                     } while (grid[mouse_tile.y * grid_size.x + mouse_tile.x] !== "0");
                     has_dug = true;
+                    setTimeout(timer, 1000);
                 }
                 dig(mouse_tile.x, mouse_tile.y);
                 break;
