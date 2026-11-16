@@ -298,6 +298,9 @@ function flag(x, y) {
     if (revealed[candidate]) {
         return;
     }
+    if (x >= grid_size.x || x < 0 || y >= grid_size.y || y < 0) {
+        return;
+    }
     if (flagged[candidate]) {
         flagged[candidate] = false;
         num_of_flags++;
