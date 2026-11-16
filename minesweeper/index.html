@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+    
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="flag.svg">
+    <link rel="stylesheet" href="style.css">
     <title>Minesweeper</title>
-    <link rel="icon" href="/minesweeper/flag.png" />
-    <link rel="stylesheet" href="/minesweeper/style.css" />
   </head>
+
   <body>
-    <div id="title">
+    <div id="start-page">
       <h1>Minesweeper</h1>
-      <p>Dimensions:</p>
-      <input type="text" id="width" size="1" value="16" />
-      <label for="height"> by </label>
-      <input type="text" id="height" size="1" value="16" />
-      <br /><br />
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+        <option value="custom">Custom</option>
+      </select>
+      <br><br>
+      <span id="custom" class="hidden">
+        Size:
+          <input type="number" id="num_of_cols" placeholder="16"> by <input type="number" id="num_of_rows"
+            placeholder="16">
+        , <input type="number" id="num_of_mines" placeholder="40"> mines
+        <br><br>
+      </span>
       <button onclick="start()">Start</button>
     </div>
-    <div id="game" onmousedown="return false" onselectstart="return false">
-      <div id="info">
-        <img src="/minesweeper/time.png" class="infoicon" id="timericon">
-        <div id="timers">000</div>
-        <img src="/minesweeper/flag.png" class="infoicon" id="flagicon">
-        <div id="flags">000</div>
+    <main id="game-page" class="hidden">
+      <canvas id="board" width="400" height="450" oncontextmenu="return false;"></canvas>
+    </main>
+    <aside id="gameover-page" class="hidden">
+      <div id="gameover-island">
+        <h2 id="won">Game Over</h2>
+        <p id="time"></p>
+        <button onclick="retry()">Retry</button>
+        <button onclick="home()">Home</button>
       </div>
-      <div id="grid"></div>
+    </aside>
+    <div class="hidden">
+      <img src="flag.svg" id="flag_img" alt="Flag icon">
+      <img src="mine.svg" id="mine_img" alt="Mine icon">
     </div>
-    <div id="gameover">Game Over!</div>
-    <script src="/minesweeper/script.js"></script>
+    <script src="script.js"></script>
   </body>
+
 </html>
